@@ -21,7 +21,10 @@ class Timetable:
     slots = property(get_slots)
     subj_dict = property(get_subj_dict)
     
-    
+
+# We need a function that takes a subj_dict for a whole week
+# and makes them into 7 subj_dict's for each day
+# def dist_subjects(...)
 
 # Test: Example time tables
 TT1 = Timetable(4, {"Maths": 2, "EC": 1, "CS": 1})
