@@ -35,7 +35,7 @@ class Timetable:
 #   like {"Mon": 6, "Tue": 6, "Wed": 4, "Thu": 6, "Fri": 5}
 
 def dist_subjects(week_dict, slot_dict):
-    subj_dict_by_day = {}     # Eg: {"Mon":{"s1":1, "s2":2}, "Tue":{"s1":2, "s3":3}, ...}
+    tt_dict = {}     # Eg: {"Mon":{"s1":1, "s2":2}, "Tue":{"s1":2, "s3":3}, ...}
     #for day in slot_dict:
         #subj_dict_by_day[day] = {}
     if sum(week_dict.values()) > sum(slot_dict.values()):
@@ -44,21 +44,21 @@ def dist_subjects(week_dict, slot_dict):
         print(f"Please reduce {hr_deficit} hours from the week or increase those many slots")
     else:
         for subject in sorted(week_dict, key=week_dict.__getitem__, reverse=True):
-            dist_value = week_dict[subject] // len(slot_dict)
-            remainder = 0
-            if week_dict[subject] % len(slot_dict) != 0:
-                remainder = week_dict[subject] % len(slot_dict)
             for day in sorted(slot_dict, key=slot_dict.__getitem__, reverse=True):
-                #print("ay")
-                if day not in subj_dict_by_day:
-                    subj_dict_by_day[day] = {}
-                if subject not in subj_dict_by_day[day]:
-                    #print(subj_dict_by_day)
-                    subj_dict_by_day[day][subject] = dist_value
-                    if remainder != 0:
-                        subj_dict_by_day[day][subject] += 1
-                        remainder -= 1
-    return subj_dict_by_day
+                    if day not in tt_dict:
+                        tt_dict[day] = {}
+                    if subject not in tt_dict[day]:
+                        tt_dict[day][subject] = 0
+        daily_quota = slot_dict
+        subj_quota = week_dict
+        while sum(daily_quota.values()) != 0:
+            # take day with max quota and increment with a subject with max quota
+            day = max(daily_quota, key=daily_quota.__getitem__)
+            subj = max(subj_quota, key=subj_quota.__getitem__)
+            tt_dict[day][subj] += 1
+            daily_quota[day] -= 1
+            subj_quota[subj] -= 1
+    return tt_dict
 
 # Test: Example time tables
 TT1 = Timetable(4, {"Maths": 2, "EC": 1, "CS": 1})
@@ -69,5 +69,5 @@ TT2 = Timetable(6, {"Maths": 2, "EC": 1, "CS": 2, "Bio": 1})
 
 # Test: the distribution algorithm
 print(dist_subjects(
-    {"Maths": 5, "Chem": 4, "EC": 4, "Bio": 2, "Comp": 4},
-    {"Mon": 6, "Tue": 4, "Wed": 4, "Thu": 6, "Fri": 5}))
+    {"Maths": 5, "Chem": 4, "EC": 4, "Bio": 2, "Comp": 4, "CSLab": 2, "ChemLab": 2},
+    {"Mon": 6, "Tue": 6, "Wed": 4, "Thu": 6, "Fri": 5}))
