@@ -49,12 +49,14 @@ def dist_subjects(week_dict, slot_dict):
             if week_dict[subject] % len(slot_dict) != 0:
                 remainder = week_dict[subject] % len(slot_dict)
             for day in sorted(slot_dict, key=slot_dict.__getitem__, reverse=True):
+                #print("ay")
                 if day not in subj_dict_by_day:
                     subj_dict_by_day[day] = {}
-                    if subject not in subj_dict_by_day[day]:
-                        subj_dict_by_day[day][subject] = dist_value
+                if subject not in subj_dict_by_day[day]:
+                    #print(subj_dict_by_day)
+                    subj_dict_by_day[day][subject] = dist_value
                     if remainder != 0:
-                        subj_dict_by_day[subject] += 1
+                        subj_dict_by_day[day][subject] += 1
                         remainder -= 1
     return subj_dict_by_day
 
@@ -62,8 +64,8 @@ def dist_subjects(week_dict, slot_dict):
 TT1 = Timetable(4, {"Maths": 2, "EC": 1, "CS": 1})
 TT2 = Timetable(6, {"Maths": 2, "EC": 1, "CS": 2, "Bio": 1})
 
-print(TT1.slots)
-print(TT2.subj_dict)
+#print(TT1.slots)
+#print(TT2.subj_dict)
 
 # Test: the distribution algorithm
 print(dist_subjects(
