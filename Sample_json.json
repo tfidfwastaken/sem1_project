@@ -1,0 +1,46 @@
+{		
+"monday":
+	{
+	"1A":['Math', 'Math', 'Chem', 'Phys', 'Bio', 'C.S.', 'Library', 'P.T.', 'English'],
+	"1B":['Chem', 'Phys', 'C.S.', 'Bio', 'Math', 'Math', 'English', 'P.T.', 'Library'],
+	"1C":['Phys', 'Library', 'Math', 'Math', 'English', 'Chem', 'Bio', 'P.T.', 'C.S.'],
+	"2A":['Library','Chem', 'Phys', 'C.S.', 'EVS', 'English', 'Math', 'Bio', 'P.T.']
+	"2B":['C.S.', 'Bio', 'English', 'Chem', 'Phys', 'Library', 'EVS', 'Math', 'P.T.'] 
+	}
+
+"tuesday":
+	{
+	"2B":['Math', 'Math', 'Chem', 'Phys', 'Bio', 'C.S.', 'Library', 'P.T.', 'English'],
+	"1A":['Chem', 'Phys', 'C.S.', 'Bio', 'Math', 'Math', 'English', 'P.T.', 'Library'],
+	"1B":['Phys', 'Library', 'Math', 'Math', 'English', 'Chem', 'Bio', 'P.T.', 'C.S.'],
+	"1C":['Library','Chem', 'Phys', 'C.S.', 'EVS', 'English', 'Math', 'Bio', 'P.T.']
+	"2A":['C.S.', 'Bio', 'English', 'Chem', 'Phys', 'Library', 'EVS', 'Math', 'P.T.'] 
+	}
+
+"wednesday":
+	{
+	"2A":['Math', 'Math', 'Chem', 'Phys', 'Bio', 'C.S.', 'Library', 'P.T.', 'English'],
+	"2B":['Chem', 'Phys', 'C.S.', 'Bio', 'Math', 'Math', 'English', 'P.T.', 'Library'],
+	"1A":['Phys', 'Library', 'Math', 'Math', 'English', 'Chem', 'Bio', 'P.T.', 'C.S.'],
+	"1B":['Library','Chem', 'Phys', 'C.S.', 'EVS', 'English', 'Math', 'Bio', 'P.T.']
+	"1C":['C.S.', 'Bio', 'English', 'Chem', 'Phys', 'Library', 'EVS', 'Math', 'P.T.'] 
+	}
+
+"thursday":
+	{
+	"1C":['Math', 'Math', 'Chem', 'Phys', 'Bio', 'C.S.', 'Library', 'P.T.', 'English'],
+	"2A":['Chem', 'Phys', 'C.S.', 'Bio', 'Math', 'Math', 'English', 'P.T.', 'Library'],
+	"2B":['Phys', 'Library', 'Math', 'Math', 'English', 'Chem', 'Bio', 'P.T.', 'C.S.'],
+	"1A":['Library','Chem', 'Phys', 'C.S.', 'EVS', 'English', 'Math', 'Bio', 'P.T.']
+	"1B":['C.S.', 'Bio', 'English', 'Chem', 'Phys', 'Library', 'EVS', 'Math', 'P.T.'] 
+	}
+
+"friday":
+	{
+	"1B":['Math', 'Math', 'Chem', 'Phys', 'Bio', 'C.S.', 'Library', 'P.T.', 'English'],
+	"1C":['Chem', 'Phys', 'C.S.', 'Bio', 'Math', 'Math', 'English', 'P.T.', 'Library'],
+	"2A":['Phys', 'Library', 'Math', 'Math', 'English', 'Chem', 'Bio', 'P.T.', 'C.S.'],
+	"2B":['Library','Chem', 'Phys', 'C.S.', 'EVS', 'English', 'Math', 'Bio', 'P.T.']
+	"1A":['C.S.', 'Bio', 'English', 'Chem', 'Phys', 'Library', 'EVS', 'Math', 'P.T.'] 
+	}
+}
