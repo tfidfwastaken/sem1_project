@@ -46,9 +46,12 @@ def genClassTt(jsonFileName):       #Generates the class timetable
     data = __retrJSON(jsonFileName)
 
     desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') #Var assigned 'path of Desktop' (code for windows)
-# desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')              # Code for Unix
+    # desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')              # Code for Unix
     dirStr = '{}\\{}'.format(desktop,'Student Timetables')
-    os.mkdir(dirStr)                                                                #This Directory to be created in another directory called Timetables (If there is time)
+    try:
+        os.mkdir(dirStr)                                                                #This Directory to be created in another directory called Timetables (If there is time)
+    except FileExistsError:
+        print('Directory already exists. Will do ammendments in the directory.')
 
 #For eachClass iterates over JSON file to retrieve timetable the particular class,
 #And generates a timetable for each class as a text file
