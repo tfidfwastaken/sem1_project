@@ -1,5 +1,5 @@
 import json
-"""
+
 print("Adding the subject and hours per week\n\n")
 my_dict1 = dict()
 user_input = input("Enter subject and hours per week separated by commas (,): ")
@@ -20,7 +20,7 @@ json = json.dumps(my_dict1)
 f = open("dict_subperweek.json","w")
 f.write(json)
 f.close()
-"""
+
 print("Adding the hours per day\n\n")
 l=["Monday","Tuesday","Wednesday","Thursday","Friday"]
 
