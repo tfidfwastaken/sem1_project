@@ -23,6 +23,8 @@ class Timetable:
         of times and shuffle its contents
     """
 
+
+""" TODO: Delete this mess, once refactored
 # Takes the quota of subjects per week and slots per week
 # and makes a time table in dict form
 def dist_subjects(week_dict, slot_dict):
@@ -49,12 +51,26 @@ def dist_subjects(week_dict, slot_dict):
             daily_quota[day] -= 1
             subj_quota[subj] -= 1
     return tt_dict
+"""
 
+def gen_master_freq(sub_dict, slot_dict, sec_list):
+    if sum(sub_dict.values()) > sum(slot_dict.values()):
+        hr_deficit = sum(sub_dict.values()) - sum(slot_dict.values())
+        print("Too many hours to accomodate.")
+        print(f"Please reduce {hr_deficit} hours from the week or increase those many slots")
+    else:
+        table = dict(zip(slot_dict, [{}] * len(slot_dict)))
+        for day in table:
+            table[day] = dict(zip(sec_list, [{}] * len(sub_dict)))
+            for sec in sec_list:
+                table[day][sec] = dict(zip(sub_dict, [0] * len(sub_dict)))
+        return table
+
+""" TODO: Remove later
 # Test: the distribution algorithm
 tt1 = dist_subjects(
     {"Maths": 5, "Chem": 4, "EC": 4, "Bio": 2, "Comp": 4, "CSLab": 2, "ChemLab": 2},
     {"Mon": 6, "Tue": 6, "Wed": 4, "Thu": 6, "Fri": 5})
-
 tt2 = dist_subjects(
     {"Cooking": 3, "Carpentry": 5, "Pole-Vaulting": 4},
     {"Mon": 4, "Wed": 5, "Fri": 3})
@@ -65,3 +81,9 @@ TT2 = Timetable(tt2)
 
 print(TT1.tt_dict)
 print(TT2.tt_dict)
+"""
+tt = gen_master_freq(
+    {"Maths": 3, "Phy": 5, "Chem": 4},
+    {"Mon": 4, "Wed": 5, "Fri": 3}, ["A", "B", "C"])
+
+print(tt)
