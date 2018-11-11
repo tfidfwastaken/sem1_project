@@ -64,6 +64,10 @@ def gen_master_freq(sub_dict, slot_dict, sec_list):
             table[day] = dict(zip(sec_list, [{}] * len(sub_dict)))
             for sec in sec_list:
                 table[day][sec] = dict(zip(sub_dict, [0] * len(sub_dict)))
+                while sum(sub_dict.values()) != 0:
+                    for sub in sub_dict:
+                        table[day][sec][sub] += 1
+                        sub_dict[sub] -= 1
         return table
 
 """ TODO: Remove later
