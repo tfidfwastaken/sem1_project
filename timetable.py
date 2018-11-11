@@ -5,6 +5,8 @@ Number of classes
 Number of subjects and their credits
 Other stuff like let-off days etc.
 """
+import json
+import copy
 
 class Timetable:
     def __init__(self, tt_dict):
@@ -59,15 +61,23 @@ def gen_master_freq(sub_dict, slot_dict, sec_list):
         print("Too many hours to accomodate.")
         print(f"Please reduce {hr_deficit} hours from the week or increase those many slots")
     else:
+        sub_dict = dict(zip(sub_dict, map(lambda x: x * len(sec_list), sub_dict.values())))
         table = dict(zip(slot_dict, [{}] * len(slot_dict)))
         for day in table:
             table[day] = dict(zip(sec_list, [{}] * len(sub_dict)))
             for sec in sec_list:
                 table[day][sec] = dict(zip(sub_dict, [0] * len(sub_dict)))
-                while sum(sub_dict.values()) != 0:
+        while sum(sub_dict.values()) != 0:
+            for day in table:
+                for sec in sec_list:
                     for sub in sub_dict:
-                        table[day][sec][sub] += 1
-                        sub_dict[sub] -= 1
+                        #quota = sub_dict[sub]
+                        if sub_dict[sub] != 0:
+                            table[day][sec][sub] += 1
+                            #print(table[day][sec][sub], sub_dict[sub],
+                            #        sum(table[day][sec].values()), quota)
+                            print()
+                            sub_dict[sub] -= 1
         return table
 
 """ TODO: Remove later
@@ -88,6 +98,6 @@ print(TT2.tt_dict)
 """
 tt = gen_master_freq(
     {"Maths": 3, "Phy": 5, "Chem": 4},
-    {"Mon": 4, "Wed": 5, "Fri": 3}, ["A", "B", "C"])
+    {"Mon": 3, "Wed": 6, "Fri": 4}, ["A", "B", "C"])
 
-print(tt)
+print(json.dumps(tt))
