@@ -1,0 +1,28 @@
+Requirements:
+For Each Class (Example: 5)
+  -List of subjects (PCMB, His/Civ, Geo, Eng I, Eng II, II Lang, C.S.)
+    -Subjects having constant requirements along with number of class hours (Example: Only 1 P.T. period)
+    -Subjects having Minimum Requirements along with number of class hours (Example: Minimum of 5 Maths periods per week) 
+    
+    
+    
+inputInfo contains inputSubDict for each class
+inputSubDict: contains minimum & constant requirements of subjects
+example for inputInfo: {
+                        '5' : {   "phys"   : 5             integer value stored, specifying it is minimum requirement value
+                                    "chem" : 5              --                   --                           --"--                        --                         --
+                                    "Math"  : 5             --                   --                           --"--                        --                         --
+                                    "bio"      : 5             --                   --                           --"--                        --                         --
+                                    "Eng I"   : 0             --                   --                           --"--                        --                         --
+                                    "P.T."     : "3"          string value stored, specifying it is constant requirement value
+                                },
+                        '6' : {...
+    
+                                },
+
+                        ...}
+
+example for inputSubDict: the value(dictionary) the key '5' has.
+
+
+
